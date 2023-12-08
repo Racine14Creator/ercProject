@@ -121,9 +121,9 @@ routes.get('/logout', (req, res) => {
 })
 
 // Get one user
-routes.get('/api/:_id', async(req, res) => {
+routes.get('/api/:_id', async (req, res) => {
     const id = req.params._id
-    User.findById(id, async(err, cb) => {
+    await User.findById(id, async(err, cb) => {
         if (err) error({ message: `${err}`, badge: true })
         await res.render('user', { cb })
     })
